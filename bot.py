@@ -36,11 +36,14 @@ EMOJI_MAP = {
 }
 
 # --- Google Sheets setup
-GOOGLE_SHEET_NAME = "Zielico_Заказы"
 import json
 from io import StringIO
 
+scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+
+GOOGLE_SHEET_NAME = "Zielico_Заказы"
 creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+
 if creds_json:
     creds = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(creds_json), scope)
 else:
