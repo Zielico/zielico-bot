@@ -282,9 +282,8 @@ if __name__ == "__main__":
     # Применяем костыль к уже работающему event loop
     nest_asyncio.apply()
 
-    loop = asyncio.get_event_loop()
     try:
-        loop.run_until_complete(main())
+        asyncio.run(main())
     except KeyboardInterrupt:
         print("🛑 Bot zatrzymany przez użytkownika.")
 
