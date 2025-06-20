@@ -274,10 +274,11 @@ async def main():
     await app.run_polling()
 
 if __name__ == "__main__":
-    import nest_asyncio
-    nest_asyncio.apply()
+    import asyncio
 
     try:
-        asyncio.run(main())
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(main())
     except KeyboardInterrupt:
         print("🛑 Bot zatrzymany przez użytkownika.")
+
