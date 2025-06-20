@@ -8,6 +8,19 @@ import os
 import asyncio
 import nest_asyncio
 
+# --- костыль для Render Web Service (порт биндинг)
+def fake_server():
+    PORT = int(os.getenv("PORT", 10000))
+    Handler = http.server.SimpleHTTPRequestHandler
+    with socketserver.TCPServer(("", PORT), Handler) as httpd:
+        print(f"Fake HTTP server on port {PORT}")
+        httpd.serve_forever()
+
+threading.Thread(target=fake_server, daemon=True).start()
+
+# --- остальной код
+
+
 # --- Загрузка токена и переменных окружения
 load_dotenv()
 TOKEN = os.getenv("TOKEN") or "ТВОЙ_ТОКЕН_ЗДЕСЬ"
