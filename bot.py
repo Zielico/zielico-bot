@@ -35,7 +35,6 @@ EMOJI_MAP = {
     "Kapusta Mizuna": "🥬"
 }
 
-# --- Google Sheets setup
 import json
 
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -43,6 +42,7 @@ GOOGLE_SHEET_NAME = "Zielico_Заказы"
 
 creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
 creds = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(creds_json), scope)
+
 client = gspread.authorize(creds)
 sheet_cennik = client.open(GOOGLE_SHEET_NAME).worksheet("Cennik")
 sheet_zamowienia = client.open(GOOGLE_SHEET_NAME).worksheet("Zamówienia")
