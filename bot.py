@@ -7,6 +7,8 @@ from dotenv import load_dotenv
 import os
 import asyncio
 import threading
+import http.server
+import socketserver
 import nest_asyncio
 
 # --- костыль для Render Web Service (порт биндинг)
