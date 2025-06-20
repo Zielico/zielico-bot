@@ -46,8 +46,7 @@ creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
 
 if creds_json:
     creds = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(creds_json), scope)
-else:
-    creds = ServiceAccountCredentials.from_json_keyfile_name("zielico-c56d6a502324.json", scope)
+
 
 
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
