@@ -40,12 +40,14 @@ import json
 from io import StringIO
 
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-
 GOOGLE_SHEET_NAME = "Zielico_Заказы"
-creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
+GOOGLE_CREDENTIALS = "zielico-c56d6a502324.json"  # 🔧 ← вот это обязательно
 
+creds_json = os.getenv("GOOGLE_CREDENTIALS_JSON")
 if creds_json:
     creds = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(creds_json), scope)
+else:
+    creds = ServiceAccountCredentials.from_json_keyfile_name(GOOGLE_CREDENTIALS, scope)
 
 
 
