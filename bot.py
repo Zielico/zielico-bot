@@ -119,7 +119,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         msg = f"❓ *Nowe pytanie od klienta:*\n\n"
         msg += f"👤 {user.full_name} (@{user.username or 'brak'})\n"
         msg += f"📝 {question}"
-        await context.bot.send_message(chat_id=ADMIN_CHAT_ID, text=msg, parse_mode="Markdown")
+        await context.bot.send_message(chat_id=ADMIN_CHAT_ID, text=msg, parse_mode="None")
         return
 
     else:
