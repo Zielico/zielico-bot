@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import os
 
     # --- Запуск Telegram-бота (без ошибок asyncio)
-    from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, CallbackQueryHandler, filters
+from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, CallbackQueryHandler, filters
 
     async def runner():
         await main()
